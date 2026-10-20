@@ -273,7 +273,7 @@ footer{background:white!important;border-top:1px solid var(--line);padding:40px 
             <span class="avatar" aria-hidden="true">ЕД</span><h3>Елисей Долгих</h3><p>Коммерческий директор</p>
             <a href="mailto:e.dolgikh@retaildesk.tech">e.dolgikh@retaildesk.tech</a>
           </article>
-          <p class="small">Напишите Елисею: обсудим задачу и необходимые вводные для медиаплана.</p>
+          <p class="small">Свяжитесь с нами: обсудим задачу и необходимые вводные для медиаплана.</p>
         </div>
         <div data-form-slot="inline"></div>
       </div>
@@ -304,7 +304,7 @@ footer{background:white!important;border-top:1px solid var(--line);padding:40px 
 <template id="form-template">
   <form class="contact-form" novalidate>
     <h3>Обсудим вашу задачу</h3>
-    <p class="small">Напишите Елисею — обсудим ваши SKU, торговые сети и цели кампании.</p><a class="button" href="mailto:e.dolgikh@retaildesk.tech?subject=Обсуждение%20кампании%20Retail%20Desk">Связаться с нами ↗</a><p class="form-preview-label">Предпросмотр формы · отправка пока не подключена</p>
+    <p class="small">Свяжитесь с нами — обсудим ваши SKU, торговые сети и цели кампании.</p><a class="button" href="mailto:e.dolgikh@retaildesk.tech?subject=Обсуждение%20кампании%20Retail%20Desk">Связаться с нами ↗</a><p class="form-preview-label">Предпросмотр формы · отправка пока не подключена</p>
     <label>Ваше имя *<input name="name" autocomplete="name" required maxlength="100" placeholder="Как к вам обращаться"><span class="field-error"></span></label>
     <label>Рабочая почта *<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@company.ru"><span class="field-error"></span></label>
     <div class="form-row">
@@ -315,7 +315,7 @@ footer{background:white!important;border-top:1px solid var(--line);padding:40px 
     <p class="fine">* Обязательные поля</p>
     <div><label class="consent"><input name="consent" type="checkbox" required><span>Даю согласие на обработку персональных данных для ответа на обращение.</span></label><span class="field-error consent-error"></span></div>
     <div class="legal-links"><button type="button" class="text-link" data-document="consent">Согласие на обработку данных</button><button type="button" class="text-link" data-document="policy">Политика обработки персональных данных</button></div>
-    <p class="form-notice">Предпросмотр сайта: автоматическая отправка пока не подключена. Для обращения можно <a href="mailto:e.dolgikh@retaildesk.tech">написать Елисею</a>.</p>
+    <p class="form-notice">Предпросмотр сайта: автоматическая отправка пока не подключена. Для обращения можно <a href="mailto:e.dolgikh@retaildesk.tech">связаться с нами</a>.</p>
     <button class="button submit-button" type="submit">Проверить заполнение <span aria-hidden="true">↗</span></button>
     <div class="form-status" role="status" aria-live="polite"></div>
     <a class="brief-link" href="https://docs.google.com/document/d/1v_Ky0XCJLGs7YrX4C90oVrFOIcUJVOCADokN-u72wgM/edit" target="_blank" rel="noopener noreferrer">Заполнить подробный бриф ↗</a>
@@ -659,7 +659,7 @@ for (const form of document.querySelectorAll('.contact-form')) {
     event.preventDefault();
     if (!validate(form)) return;
     const status = form.querySelector('.form-status');
-    status.textContent = 'Автоматическая отправка пока не подключена. Заявка не отправлена. Данные остались в форме. Свяжитесь с Елисеем: ';
+    status.textContent = 'Автоматическая отправка пока не подключена. Заявка не отправлена. Данные остались в форме. Свяжитесь с нами: ';
     const mail = document.createElement('a');
     mail.href = 'mailto:e.dolgikh@retaildesk.tech';
     mail.textContent = 'e.dolgikh@retaildesk.tech';
