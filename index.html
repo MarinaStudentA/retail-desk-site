@@ -8,9 +8,9 @@
   <meta name="theme-color" content="#7f58ff">
   <title>Retail Desk — единое окно в Retail Media</title>
   <link rel="stylesheet" href="assets/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=20261029f"><link rel="stylesheet" href="designer.css?v=20261029f">
+  <link rel="stylesheet" href="styles.css?v=20261029demo1"><link rel="stylesheet" href="designer.css?v=20261029demo1">
   <script src="details.js" defer></script>
-  <script src="app.js?v=20261029f" defer></script>
+  <script src="demo-config.js?v=20261029demo1" defer></script><script src="lead-client.js?v=20261029demo1" defer></script><script src="app.js?v=20261029demo1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Перейти к содержанию</a>
@@ -52,12 +52,12 @@
     <p class="fine">* Обязательные поля</p>
     
     <div class="legal-links"><button type="button" class="text-link" data-document="policy">Обработка данных на сайте</button></div>
-    <p class="form-notice">Подготовим письмо в вашем почтовом приложении. Проверьте его и нажмите «Отправить», чтобы мы получили запрос.</p>
-    <button class="button submit-button" type="submit">Подготовить письмо <span aria-hidden="true">↗</span></button>
+    <div class="trap" aria-hidden="true"><label>Сайт компании<input name="website" tabindex="-1" autocomplete="off"></label></div><label class="consent"><input name="consent" type="checkbox" required><span>Даю <button type="button" class="text-link" data-document="consent">согласие на обработку персональных данных</button> для ответа на обращение.</span></label><span class="field-error consent-error"></span><p class="form-notice">Демонстрация: заявка попадёт в CRM с пометкой «ДЕМО». Введённые вами данные будут переданы без подмены.</p>
+    <button class="button submit-button" type="submit">Отправить заявку <span aria-hidden="true">↗</span></button>
     <div class="form-status" role="status" aria-live="polite"></div>
     <a class="brief-link" href="https://docs.google.com/document/d/1v_Ky0XCJLGs7YrX4C90oVrFOIcUJVOCADokN-u72wgM/edit" target="_blank" rel="noopener noreferrer">Заполнить подробный бриф ↗</a>
   </form>
 </template>
-<noscript><p class="noscript">Для работы формы включите JavaScript. Написать нам: <a href="mailto:e.dolgikh@retaildesk.tech">e.dolgikh@retaildesk.tech</a>.</p></noscript>
+<noscript><p class="noscript">Для работы формы включите JavaScript. Написать нам: <a href="mailto:a.ivanov@retaildesk.tech">a.ivanov@retaildesk.tech</a>.</p></noscript>
 </body>
 </html>

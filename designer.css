@@ -34,3 +34,5 @@ footer{background:white;padding:0 0 48px}.footer-panel{padding:48px;border-radiu
 .hero .intro{max-width:590px;font-size:18px;line-height:1.5}
 @media(max-width:960px){.hero .intro{font-size:16px}}
 .form-status a{display:inline-block;margin-top:8px;font-weight:600}
+
+.trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.consent .text-link{font-size:inherit;text-align:left}.form-status:not(:empty){padding:16px;border:1px solid #d8ccff;border-radius:16px;background:#fff}.submit-button:disabled{opacity:.75;cursor:default}
