@@ -29,3 +29,8 @@ footer{background:white;padding:0 0 48px}.footer-panel{padding:48px;border-radiu
 @media(max-width:600px){.comparison .comparison-head{display:none}.hero-art{right:auto;width:calc(100% + 80px);height:auto;opacity:1}.steps li:not(:last-child)::after{transform:none}.contact-form{padding:20px}.pilot-stats>.glass-decoration{padding:0}}
 @media(min-width:601px) and (max-width:960px){.hero-grid{display:flex;flex-direction:column;min-height:0}.hero-copy{width:100%;max-width:650px}.hero-art{position:relative;top:auto;right:auto;align-self:flex-end;width:85%;height:auto;aspect-ratio:870/722;object-fit:fill;margin:16px -45px -50px;opacity:1}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+.audience-card .number{background:var(--gradient);color:#fff;border-radius:36px;border-color:transparent;font:400 18px/1 Montserrat,Arial,sans-serif;padding:9px 12px}
+.hero .intro{max-width:590px;font-size:18px;line-height:1.5}
+@media(max-width:960px){.hero .intro{font-size:16px}}
+.form-status a{display:inline-block;margin-top:8px;font-weight:600}

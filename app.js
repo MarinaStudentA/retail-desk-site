@@ -1,6 +1,4 @@
 'use strict';
-// No data is submitted, stored, or sent to analytics in this preview.
-// Connect a same-origin, Russian-hosted endpoint only after approving the legal texts.
 const formDialog = document.querySelector('#contact-dialog');
 const documentDialog = document.querySelector('#document-dialog');
 const detailDialog = document.querySelector('#detail-dialog');
@@ -23,15 +21,11 @@ for (const slot of document.querySelectorAll('[data-form-slot]')) {
 const docs = {
   company: {
     title: 'Реквизиты компании',
-    content: '<p><strong>ООО «ЦИФРОВОЕ ПРЕДПРИЯТИЕ»</strong></p><p>ИНН 7743365131</p><p>Каширское шоссе, 3к2с4, пом. 1/7</p><p><a href="mailto:e.dolgikh@retaildesk.tech">e.dolgikh@retaildesk.tech</a></p><p class="small">Перед публичным запуском необходимо уточнить город, полный юридический адрес и ОГРН.</p>'
+    content: '<p><strong>ООО «ЦИФРОВОЕ ПРЕДПРИЯТИЕ»</strong></p><p>ИНН 7743365131</p><p>Каширское шоссе, 3к2с4, пом. 1/7</p><p><a href="mailto:e.dolgikh@retaildesk.tech">e.dolgikh@retaildesk.tech</a></p>'
   },
   policy: {
-    title: 'Политика обработки персональных данных',
-    content: '<p class="draft-label">ПРОЕКТ ДОКУМЕНТА · НЕ УТВЕРЖДЁН ДЛЯ ПУБЛИКАЦИИ</p><p><strong>Оператор:</strong> ООО «ЦИФРОВОЕ ПРЕДПРИЯТИЕ», ИНН 7743365131. Каширское шоссе, 3к2с4, пом. 1/7. Город и контакт для обращений по персональным данным уточняются.</p><p><strong>Планируемая цель:</strong> рассмотрение заявки и подготовка ответа. Данные: имя, email и добровольно заполненные сведения о компании, телефоне и задаче.</p><p>В этой версии сайта форма не передаёт введённые данные. Рекламная аналитика и необязательные cookie не используются. Письмо через почтовую ссылку отправляется пользователем в его почтовом приложении.</p><p><strong>До подключения формы:</strong> утвердить правовые основания, операции и способы обработки, сроки хранения и удаления, перечень обработчиков, условия использования почты и хостинга, локализацию, права пользователя, порядок обращений и меры защиты.</p>'
-  },
-  consent: {
-    title: 'Согласие на обработку данных',
-    content: '<p class="draft-label">ПРОЕКТ ОТДЕЛЬНОГО СОГЛАСИЯ · НЕ УТВЕРЖДЁН</p><p>Оператор: ООО «ЦИФРОВОЕ ПРЕДПРИЯТИЕ», ИНН 7743365131. Каширское шоссе, 3к2с4, пом. 1/7. Город необходимо уточнить.</p><p>Планируемая цель: рассмотреть обращение и подготовить ответ. Состав данных: имя, email, а также добровольно заполненные поля формы — компания, телефон и описание задачи.</p><p>Согласие не включает получение рекламных рассылок.</p><p>До подключения отправки необходимо определить операции и способы обработки, привлечённых обработчиков, срок действия согласия и порядок его отзыва с действующим контактом оператора.</p><p class="small">В текущей версии отметка не передаётся на сервер, форма служит для проверки интерфейса.</p>'
+    title: 'Обработка данных на сайте',
+    content: '<p>Поля формы используются в вашем браузере для подготовки письма. Сайт не отправляет их на сервер и не сохраняет после закрытия страницы.</p><p>Кнопка «Подготовить письмо» формирует ссылку для почтового приложения. Вы сами проверяете и отправляете письмо на e.dolgikh@retaildesk.tech. До отправки письма команда Retail Desk не получает запрос.</p><p>Сайт не использует рекламные счётчики и необязательные cookie.</p><p>Получатель обращения: ООО «ЦИФРОВОЕ ПРЕДПРИЯТИЕ», ИНН 7743365131.</p>'
   }
 };
 let formOpener;
@@ -173,10 +167,9 @@ function fieldError(input, message) {
   if (errorId) document.getElementById(errorId).textContent = message;
 }
 function validate(form) {
-  const name = form.elements.name, email = form.elements.email, consent = form.elements.consent;
+  const name = form.elements.name, email = form.elements.email;
   fieldError(name, name.value.trim() ? '' : 'Укажите, как к вам обращаться.');
   fieldError(email, email.validity.valid && email.value.trim() ? '' : 'Укажите почту в формате name@company.ru.');
-  fieldError(consent, consent.checked ? '' : 'Подтвердите согласие на обработку данных.');
   const invalid = form.querySelector('[aria-invalid="true"]');
   if (invalid) invalid.focus();
   return !invalid;
@@ -190,10 +183,12 @@ for (const form of document.querySelectorAll('.contact-form')) {
     event.preventDefault();
     if (!validate(form)) return;
     const status = form.querySelector('.form-status');
-    status.textContent = 'Автоматическая отправка пока не подключена. Заявка не отправлена. Данные остались в форме. Свяжитесь с нами: ';
+    const fields = [['Имя','name'],['Email','email'],['Компания / бренд','company'],['Телефон','phone'],['Задача','message']];
+    const body = fields.map(([label,key]) => `${label}: ${form.elements[key].value.trim()}`).join('\n');
     const mail = document.createElement('a');
-    mail.href = 'mailto:e.dolgikh@retaildesk.tech';
-    mail.textContent = 'e.dolgikh@retaildesk.tech';
+    mail.href = `mailto:e.dolgikh@retaildesk.tech?subject=${encodeURIComponent('Запрос с сайта Retail Desk')}&body=${encodeURIComponent(body)}`;
+    mail.textContent = 'Открыть письмо в почтовом приложении';
+    status.textContent = 'Письмо подготовлено. Откройте его и отправьте — после этого мы сможем ответить. ';
     status.append(mail);
   });
 }
