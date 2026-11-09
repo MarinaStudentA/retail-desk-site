@@ -13,6 +13,7 @@ form.addEventListener('submit',async e=>{e.preventDefault();if(busy||!form.repor
  try{const result=await RetailDeskLeads.send(window.RETAIL_DESK_API,data);
  if(result.ok){status.textContent='Спасибо! Заявка получена. Организаторы рассмотрят её и отправят подтверждение участия на вашу почту.';form.reset();lastBody=null;requestId=null;}
  else status.textContent=result.message;
- }catch{status.textContent='Не удалось подтвердить отправку. Данные сохранены в форме. Попробуйте ещё раз или напишите на a.ivanov@retaildesk.tech.';}
+ }catch{status.textContent='Не удалось подтвердить отправку. Данные сохранены в форме. Попробуйте ещё раз или напишите на info@retaildesk.tech.';}
  finally{busy=false;submit.disabled=false;}
 });
+
